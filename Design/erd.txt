@@ -1,0 +1,94 @@
+@startuml
+
+' hide the spot
+'hide circle
+
+' avoid problems with angled crows feet
+skinparam linetype ortho
+
+entity mouse {
+  * mouse : number <<generated>>
+  --
+  * name : text
+  picture : file
+  favorite : boolean
+  date_of_birth : date
+  deceased_on : date
+}
+
+entity mouse_trait {
+  * mouse : number <<FK>>
+  * trait : number <<FK>>
+  --
+  value : 
+}
+
+entity trait {
+  *trait : number <<generated>>
+  --
+  * name : text
+  description : text
+  dominant : boolean
+}
+
+entity offspring {
+  * mouse : number <<FK>>
+  * mating : number <<FK>>
+  --
+}
+
+' The buck and doe must be a mouse in the system
+entity mating {
+  * mating : number <<generated>>
+  --
+  * doe : string <<FK>>
+  * buck : string <<FK>>
+  cohabitation_start : date
+  cohabitation_end : date
+  copulation_date : date
+}
+
+entity breeding_plan {
+  * plan : number <<generated>>
+  --
+  goal : string <<FK>>
+  program_start : date
+  program_end : date
+}
+
+entity breeding_plan_participant {
+  * plan : number <<FK>>
+  * mouse : number <<FK>>
+  --
+  joined : date
+  retired: date
+}
+
+entity desired_trait {
+  * plan : number <<FK>>
+  * trait : number <<FK>>
+  --
+  rank : number
+}
+
+' A mouse may have 0 or more traits
+mouse }o--o{ mouse_trait
+' Mice will share traits in common
+trait }o--o{ mouse_trait
+' A mating may result in 0 or more offspring
+mating }o--|| offspring
+' A mouse can only be the offspring of a single mating
+mouse ||--|| offspring
+' A breeding plan may have 0 or more matings and matings
+' can belong to more than a single plan
+breeding_plan }o--o{ mating
+' A breeding plan can have 0 or more participants (mice)
+' and a mouse must belong to at least 1 plan but
+' may participant in more than 1 plan
+breeding_plan }o--|{ breeding_plan_participant
+' A breeding plan can have 0 or more desired traits
+' as the outcome of a breeding plan but a 
+' desired trait can only belong to a single plan
+breeding_plan }o--|| desired_trait
+
+@enduml
