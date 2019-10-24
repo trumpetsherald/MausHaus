@@ -1,0 +1,22 @@
+version: '3'
+services:
+    postgres:
+        image: postgres
+        restart: always
+#    volumes:
+#       - ./scripts/create_table.sh:/docker-entrypoint-initdb.d/create_table.sh
+#       - ./sql/:/tmp/
+        environment:
+            POSTGRES_DB: maus_haus
+            POSTGRES_USER: maus_der_verwalter
+            POSTGRES_PASSWORD: miceRn1c3
+            PGDATA: /var/lib/postgresql/data/maus_volume
+    web:
+        build: .
+        command: python manage.py runserver 0.0.0.0:8000
+        volumes:
+            - .:/src
+        ports:
+            - "8000:8000"
+        depends_on:
+            - postgres
