@@ -1,3 +1,9 @@
 from django.contrib import admin
 
-# Register your models here.
+from . import models
+
+admin.site.register(models.Mouse)
+admin.site.register(models.MouseTrait)
+admin.site.register(models.Trait)
+admin.site.register(models.Mating)
+admin.site.register(models.Offspring)

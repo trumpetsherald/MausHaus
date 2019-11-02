@@ -15,3 +15,12 @@ You'll need the following:
 This is intended to help the amatuer mouse owner / breeder to manage thier pets and hopefully be more successful at breeding the traits they want.
 
 This is really to set expectations. The target audience is not professionals although I'm open to letting it become useful at that level  I don't want it to become unfriendly to the average mouse owner. It should be not only approachable for first time mouse owners but also helpful to them. 
+
+# Running
+1. docker-compose build
+2. docker-compose run web cd src && python manage.py makemigrations
+3. docker-compose run web cd src && python manage.py migrate
+4. python manage.py migrate
+5. docker-compose up
+6. Open a brower to localhost:8000/admin
+7. Grafana is at localhost:

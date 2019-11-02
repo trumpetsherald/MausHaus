@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'maus_web.apps.MausWebConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -79,7 +80,7 @@ DATABASES = {
         'NAME': 'maus_haus',
         'USER': 'maus_der_verwalter',
         'PASSWORD': 'miceRn1c3',
-        'HOST': 'postgres',
+        'HOST': 'mouse_db',
         'PORT': 5432,
     }
 }
