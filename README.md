@@ -23,4 +23,5 @@ This is really to set expectations. The target audience is not professionals alt
 4. python manage.py migrate
 5. docker-compose up
 6. Open a brower to localhost:8000/admin
-7. Grafana is at localhost:
+7. Grafana is at localhost:3000
+8. You'll be prompted to login to Grafana, use admin admin as the password and it will prompt you to change.
