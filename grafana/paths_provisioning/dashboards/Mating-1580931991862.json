@@ -1,0 +1,776 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": "-- Grafana --",
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": true,
+  "gnetId": null,
+  "graphTooltip": 0,
+  "id": 3,
+  "links": [],
+  "panels": [
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "PostgreSQL",
+      "fill": 1,
+      "fillGradient": 5,
+      "gridPos": {
+        "h": 9,
+        "w": 12,
+        "x": 0,
+        "y": 0
+      },
+      "hiddenSeries": false,
+      "id": 2,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "nullPointMode": "null",
+      "options": {
+        "dataLinks": []
+      },
+      "percentage": false,
+      "pointradius": 2,
+      "points": true,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "format": "time_series",
+          "group": [],
+          "metricColumn": "none",
+          "rawQuery": true,
+          "rawSql": "SELECT\n  mouse.name as \"metric\",\n  mating.cohabitation_start as \"time\",\n  mating.delivery_date - mating.cohabitation_start\nFROM maus_web_mating mating, maus_web_mouse mouse\nWHERE\n  $__timeFilter(cohabitation_start)\nAND\n  mouse.mouse_id = mating.buck_id\nAND\n  mating.successful = True\nORDER BY mating.mating_id",
+          "refId": "A",
+          "select": [
+            [
+              {
+                "params": [
+                  "buck_id"
+                ],
+                "type": "column"
+              }
+            ],
+            [
+              {
+                "params": [
+                  "doe_id"
+                ],
+                "type": "column"
+              }
+            ],
+            [
+              {
+                "params": [
+                  "buck_id"
+                ],
+                "type": "column"
+              }
+            ]
+          ],
+          "table": "maus_web_mating",
+          "timeColumn": "cohabitation_start",
+          "timeColumnType": "date",
+          "where": [
+            {
+              "name": "$__timeFilter",
+              "params": [],
+              "type": "macro"
+            }
+          ]
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "When did each buck mate and how long until delivery?",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "decimals": 2,
+          "format": "d",
+          "label": "Paired to Delivery Time",
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": "",
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "PostgreSQL",
+      "fill": 1,
+      "fillGradient": 5,
+      "gridPos": {
+        "h": 9,
+        "w": 12,
+        "x": 12,
+        "y": 0
+      },
+      "hiddenSeries": false,
+      "id": 4,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "nullPointMode": "null",
+      "options": {
+        "dataLinks": []
+      },
+      "percentage": false,
+      "pointradius": 2,
+      "points": true,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "format": "time_series",
+          "group": [],
+          "metricColumn": "none",
+          "rawQuery": true,
+          "rawSql": "SELECT\n  mouse.name as \"metric\",\n  mating.cohabitation_start as \"time\",\n  mating.delivery_date - mating.cohabitation_start\nFROM maus_web_mating mating, maus_web_mouse mouse\nWHERE\n  $__timeFilter(cohabitation_start)\nAND\n  mouse.mouse_id = mating.doe_id\nAND\n  mating.successful = True\nORDER BY mating.mating_id",
+          "refId": "A",
+          "select": [
+            [
+              {
+                "params": [
+                  "buck_id"
+                ],
+                "type": "column"
+              }
+            ],
+            [
+              {
+                "params": [
+                  "doe_id"
+                ],
+                "type": "column"
+              }
+            ],
+            [
+              {
+                "params": [
+                  "buck_id"
+                ],
+                "type": "column"
+              }
+            ]
+          ],
+          "table": "maus_web_mating",
+          "timeColumn": "cohabitation_start",
+          "timeColumnType": "date",
+          "where": [
+            {
+              "name": "$__timeFilter",
+              "params": [],
+              "type": "macro"
+            }
+          ]
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "When did each doe mate and how long until delivery?",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "decimals": 2,
+          "format": "d",
+          "label": "Paired to Delivery Time",
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "PostgreSQL",
+      "fill": 1,
+      "fillGradient": 5,
+      "gridPos": {
+        "h": 9,
+        "w": 12,
+        "x": 0,
+        "y": 9
+      },
+      "hiddenSeries": false,
+      "id": 5,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "nullPointMode": "null",
+      "options": {
+        "dataLinks": []
+      },
+      "percentage": false,
+      "pointradius": 2,
+      "points": true,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "format": "time_series",
+          "group": [],
+          "metricColumn": "none",
+          "rawQuery": true,
+          "rawSql": "SELECT\n  mouse.name as \"metric\",\n  mating.delivery_date as \"time\",\n  mating.number_pups_born\nFROM maus_web_mating mating, maus_web_mouse mouse\nWHERE\n  $__timeFilter(cohabitation_start)\nAND\n  mouse.mouse_id = mating.buck_id\nAND\n  mating.successful = True\nORDER BY mating.mating_id",
+          "refId": "A",
+          "select": [
+            [
+              {
+                "params": [
+                  "buck_id"
+                ],
+                "type": "column"
+              }
+            ],
+            [
+              {
+                "params": [
+                  "doe_id"
+                ],
+                "type": "column"
+              }
+            ],
+            [
+              {
+                "params": [
+                  "buck_id"
+                ],
+                "type": "column"
+              }
+            ]
+          ],
+          "table": "maus_web_mating",
+          "timeColumn": "cohabitation_start",
+          "timeColumnType": "date",
+          "where": [
+            {
+              "name": "$__timeFilter",
+              "params": [],
+              "type": "macro"
+            }
+          ]
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "How many offspring did each buck have per mating?",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "decimals": 0,
+          "format": "locale",
+          "label": "# of Offspring",
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "PostgreSQL",
+      "fill": 1,
+      "fillGradient": 5,
+      "gridPos": {
+        "h": 9,
+        "w": 12,
+        "x": 12,
+        "y": 9
+      },
+      "hiddenSeries": false,
+      "id": 6,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "nullPointMode": "null",
+      "options": {
+        "dataLinks": []
+      },
+      "percentage": false,
+      "pointradius": 2,
+      "points": true,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "format": "time_series",
+          "group": [],
+          "metricColumn": "none",
+          "rawQuery": true,
+          "rawSql": "SELECT\n  mouse.name as \"metric\",\n  mating.delivery_date as \"time\",\n  mating.number_pups_born\nFROM maus_web_mating mating, maus_web_mouse mouse\nWHERE\n  $__timeFilter(cohabitation_start)\nAND\n  mouse.mouse_id = mating.doe_id\nAND\n  mating.successful = True\nORDER BY mating.mating_id",
+          "refId": "A",
+          "select": [
+            [
+              {
+                "params": [
+                  "buck_id"
+                ],
+                "type": "column"
+              }
+            ],
+            [
+              {
+                "params": [
+                  "doe_id"
+                ],
+                "type": "column"
+              }
+            ],
+            [
+              {
+                "params": [
+                  "buck_id"
+                ],
+                "type": "column"
+              }
+            ]
+          ],
+          "table": "maus_web_mating",
+          "timeColumn": "cohabitation_start",
+          "timeColumnType": "date",
+          "where": [
+            {
+              "name": "$__timeFilter",
+              "params": [],
+              "type": "macro"
+            }
+          ]
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "How many offspring did each doe have per mating?",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "decimals": 0,
+          "format": "locale",
+          "label": "# of Offspring",
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "columns": [],
+      "datasource": "PostgreSQL",
+      "fontSize": "100%",
+      "gridPos": {
+        "h": 12,
+        "w": 24,
+        "x": 0,
+        "y": 18
+      },
+      "id": 3,
+      "options": {},
+      "pageSize": null,
+      "showHeader": true,
+      "sort": {
+        "col": 0,
+        "desc": true
+      },
+      "styles": [
+        {
+          "alias": "",
+          "align": "auto",
+          "colorMode": null,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "dateFormat": "MMMM D, YYYY",
+          "decimals": 2,
+          "mappingType": 1,
+          "pattern": "Paired",
+          "thresholds": [],
+          "type": "date",
+          "unit": "short"
+        },
+        {
+          "alias": "",
+          "align": "auto",
+          "colorMode": null,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "dateFormat": "MMMM D, YYYY",
+          "decimals": 2,
+          "mappingType": 1,
+          "pattern": "Delivered",
+          "thresholds": [],
+          "type": "date",
+          "unit": "short"
+        },
+        {
+          "alias": "",
+          "align": "auto",
+          "colorMode": null,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "decimals": 2,
+          "mappingType": 1,
+          "pattern": "ID",
+          "thresholds": [],
+          "type": "hidden",
+          "unit": "short"
+        },
+        {
+          "alias": "",
+          "align": "center",
+          "colorMode": null,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "decimals": 0,
+          "mappingType": 1,
+          "pattern": "# Offspring",
+          "thresholds": [],
+          "type": "number",
+          "unit": "none"
+        },
+        {
+          "alias": "",
+          "align": "auto",
+          "colorMode": null,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "decimals": 2,
+          "mappingType": 1,
+          "pattern": "Mating Time",
+          "thresholds": [],
+          "type": "number",
+          "unit": "d"
+        },
+        {
+          "alias": "",
+          "align": "right",
+          "colorMode": null,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "decimals": 2,
+          "pattern": "/.*/",
+          "thresholds": [],
+          "type": "number",
+          "unit": "short"
+        }
+      ],
+      "targets": [
+        {
+          "format": "table",
+          "group": [],
+          "metricColumn": "none",
+          "rawQuery": true,
+          "rawSql": "SELECT\n  mating.mating_id as \"ID\",\n  mouse.name as \"Father\"\nFROM maus_web_mating mating, maus_web_mouse mouse\nWHERE\n  $__timeFilter(cohabitation_start)\nAND\n  mating.buck_id = mouse.mouse_id\nAND\n  mating.successful = True\nORDER BY mating.cohabitation_start DESC",
+          "refId": "A",
+          "select": [
+            [
+              {
+                "params": [
+                  "buck_id"
+                ],
+                "type": "column"
+              }
+            ],
+            [
+              {
+                "params": [
+                  "doe_id"
+                ],
+                "type": "column"
+              }
+            ],
+            [
+              {
+                "params": [
+                  "buck_id"
+                ],
+                "type": "column"
+              }
+            ]
+          ],
+          "table": "maus_web_mating",
+          "timeColumn": "cohabitation_start",
+          "timeColumnType": "date",
+          "where": [
+            {
+              "name": "$__timeFilter",
+              "params": [],
+              "type": "macro"
+            }
+          ]
+        },
+        {
+          "format": "table",
+          "group": [],
+          "metricColumn": "none",
+          "rawQuery": true,
+          "rawSql": "SELECT\n  distinct mating.mating_id as \"ID\",\n  mouse.name as \"Mother\",\n  mating.cohabitation_start AS \"Paired\",\n  mating.delivery_date AS \"Delivered\",\n  mating.number_pups_born as \"# Offspring\",\n  mating.delivery_date - mating.cohabitation_start as \"Mating Time\"\nFROM maus_web_mating mating, maus_web_mouse mouse\nWHERE\n  $__timeFilter(cohabitation_start)\nAND\n  mating.doe_id = mouse.mouse_id\nAND\n  mating.successful = True\nORDER BY 1",
+          "refId": "B",
+          "select": [
+            [
+              {
+                "params": [
+                  "buck_id"
+                ],
+                "type": "column"
+              }
+            ],
+            [
+              {
+                "params": [
+                  "doe_id"
+                ],
+                "type": "column"
+              }
+            ],
+            [
+              {
+                "params": [
+                  "buck_id"
+                ],
+                "type": "column"
+              }
+            ]
+          ],
+          "table": "maus_web_mating",
+          "timeColumn": "cohabitation_start",
+          "timeColumnType": "date",
+          "where": [
+            {
+              "name": "$__timeFilter",
+              "params": [],
+              "type": "macro"
+            }
+          ]
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "What are the vital stats of each mating event?",
+      "transform": "table",
+      "type": "table"
+    }
+  ],
+  "schemaVersion": 22,
+  "style": "dark",
+  "tags": [
+    "maus"
+  ],
+  "templating": {
+    "list": []
+  },
+  "time": {
+    "from": "now-6M",
+    "to": "now"
+  },
+  "timepicker": {
+    "refresh_intervals": [
+      "5s",
+      "10s",
+      "30s",
+      "1m",
+      "5m",
+      "15m",
+      "30m",
+      "1h",
+      "2h",
+      "1d"
+    ]
+  },
+  "timezone": "",
+  "title": "Mating",
+  "uid": "utiyfD8Wk",
+  "version": 9
+}

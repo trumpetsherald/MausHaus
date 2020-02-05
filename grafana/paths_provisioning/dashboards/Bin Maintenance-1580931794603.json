@@ -16,7 +16,7 @@
   "gnetId": null,
   "graphTooltip": 0,
   "id": 4,
-  "iteration": 1580793146901,
+  "iteration": 1580931785267,
   "links": [],
   "panels": [
     {
@@ -266,7 +266,7 @@
       "pageSize": null,
       "repeat": null,
       "repeatDirection": "h",
-      "repeatIteration": 1580793146901,
+      "repeatIteration": 1580931785267,
       "repeatPanelId": 4,
       "scopedVars": {
         "bin": {
@@ -381,7 +381,7 @@
       "pageSize": null,
       "repeat": null,
       "repeatDirection": "h",
-      "repeatIteration": 1580793146901,
+      "repeatIteration": 1580931785267,
       "repeatPanelId": 4,
       "scopedVars": {
         "bin": {
@@ -496,7 +496,7 @@
       "pageSize": null,
       "repeat": null,
       "repeatDirection": "h",
-      "repeatIteration": 1580793146901,
+      "repeatIteration": 1580931785267,
       "repeatPanelId": 4,
       "scopedVars": {
         "bin": {
@@ -611,7 +611,7 @@
       "pageSize": null,
       "repeat": null,
       "repeatDirection": "h",
-      "repeatIteration": 1580793146901,
+      "repeatIteration": 1580931785267,
       "repeatPanelId": 4,
       "scopedVars": {
         "bin": {
@@ -726,7 +726,7 @@
       "pageSize": null,
       "repeat": null,
       "repeatDirection": "h",
-      "repeatIteration": 1580793146901,
+      "repeatIteration": 1580931785267,
       "repeatPanelId": 4,
       "scopedVars": {
         "bin": {
@@ -841,7 +841,7 @@
       "pageSize": null,
       "repeat": null,
       "repeatDirection": "h",
-      "repeatIteration": 1580793146901,
+      "repeatIteration": 1580931785267,
       "repeatPanelId": 4,
       "scopedVars": {
         "bin": {
@@ -956,7 +956,7 @@
       "pageSize": null,
       "repeat": null,
       "repeatDirection": "h",
-      "repeatIteration": 1580793146901,
+      "repeatIteration": 1580931785267,
       "repeatPanelId": 4,
       "scopedVars": {
         "bin": {
@@ -1071,7 +1071,7 @@
       "pageSize": null,
       "repeat": null,
       "repeatDirection": "h",
-      "repeatIteration": 1580793146901,
+      "repeatIteration": 1580931785267,
       "repeatPanelId": 4,
       "scopedVars": {
         "bin": {
@@ -1186,7 +1186,7 @@
       "pageSize": null,
       "repeat": null,
       "repeatDirection": "h",
-      "repeatIteration": 1580793146901,
+      "repeatIteration": 1580931785267,
       "repeatPanelId": 4,
       "scopedVars": {
         "bin": {
@@ -1301,7 +1301,7 @@
       "pageSize": null,
       "repeat": null,
       "repeatDirection": "h",
-      "repeatIteration": 1580793146901,
+      "repeatIteration": 1580931785267,
       "repeatPanelId": 4,
       "scopedVars": {
         "bin": {
@@ -1545,7 +1545,7 @@
       "pageSize": null,
       "repeat": null,
       "repeatDirection": "h",
-      "repeatIteration": 1580793146901,
+      "repeatIteration": 1580931785267,
       "repeatPanelId": 9,
       "scopedVars": {
         "rack": {
@@ -1662,7 +1662,7 @@
       "pageSize": null,
       "repeat": null,
       "repeatDirection": "h",
-      "repeatIteration": 1580793146901,
+      "repeatIteration": 1580931785267,
       "repeatPanelId": 9,
       "scopedVars": {
         "rack": {
@@ -1779,7 +1779,7 @@
       "pageSize": null,
       "repeat": null,
       "repeatDirection": "h",
-      "repeatIteration": 1580793146901,
+      "repeatIteration": 1580931785267,
       "repeatPanelId": 9,
       "scopedVars": {
         "rack": {
@@ -1883,13 +1883,15 @@
   ],
   "schemaVersion": 22,
   "style": "dark",
-  "tags": [],
+  "tags": [
+    "maus"
+  ],
   "templating": {
     "list": [
       {
         "allValue": null,
         "current": {
-          "selected": true,
+          "selected": false,
           "text": "All",
           "value": "$__all"
         },
@@ -1915,7 +1917,7 @@
       {
         "allValue": null,
         "current": {
-          "selected": true,
+          "selected": false,
           "text": "All",
           "value": "$__all"
         },
@@ -1961,5 +1963,5 @@
   "timezone": "",
   "title": "Bin Maintenance",
   "uid": "9mgn8DUZz",
-  "version": 15
+  "version": 16
 }

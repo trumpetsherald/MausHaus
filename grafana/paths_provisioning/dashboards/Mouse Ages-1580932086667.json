@@ -16,9 +16,79 @@
   "gnetId": null,
   "graphTooltip": 0,
   "id": 1,
-  "iteration": 1580785534604,
+  "iteration": 1580932062724,
   "links": [],
   "panels": [
+    {
+      "datasource": "PostgreSQL",
+      "gridPos": {
+        "h": 5,
+        "w": 24,
+        "x": 0,
+        "y": 0
+      },
+      "id": 4,
+      "options": {
+        "colorMode": "value",
+        "fieldOptions": {
+          "calcs": [
+            "mean"
+          ],
+          "defaults": {
+            "decimals": 2,
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "blue",
+                  "value": null
+                }
+              ]
+            },
+            "unit": "d"
+          },
+          "overrides": [],
+          "values": true
+        },
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto"
+      },
+      "pluginVersion": "6.6.0",
+      "targets": [
+        {
+          "format": "table",
+          "group": [],
+          "metricColumn": "none",
+          "rawQuery": true,
+          "rawSql": "select\n  percentile_cont(0.10) within group (order by n1.age asc) as \"10th Percentile\",\n  percentile_cont(0.25) within group (order by n1.age asc) as \"25th Percentile\",\n  percentile_cont(0.50) within group (order by n1.age asc) as \"50th Percentile\",\n  percentile_cont(0.75) within group (order by n1.age asc) as \"75th Percentile\",\n  percentile_cont(0.90) within group (order by n1.age asc) as \"90th Percentile\"\nfrom (\n\tselect\n\tCURRENT_DATE - dob as \"age\"\nfrom\n\tmaus_web_mouse\n) as n1",
+          "refId": "A",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "column"
+              }
+            ]
+          ],
+          "timeColumn": "time",
+          "where": [
+            {
+              "name": "$__timeFilter",
+              "params": [],
+              "type": "macro"
+            }
+          ]
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "What are the ages of various percentiles of my mice?",
+      "type": "stat"
+    },
     {
       "cacheTimeout": null,
       "datasource": "PostgreSQL",
@@ -26,7 +96,7 @@
         "h": 20,
         "w": 24,
         "x": 0,
-        "y": 0
+        "y": 5
       },
       "id": 2,
       "links": [],
@@ -37,7 +107,7 @@
             "lastNotNull"
           ],
           "defaults": {
-            "decimals": 1,
+            "decimals": 2,
             "mappings": [
               {
                 "id": 0,
@@ -52,12 +122,32 @@
               "mode": "absolute",
               "steps": [
                 {
-                  "color": "green",
+                  "color": "blue",
                   "value": null
                 },
                 {
+                  "color": "purple",
+                  "value": 14
+                },
+                {
+                  "color": "super-light-green",
+                  "value": 42
+                },
+                {
+                  "color": "green",
+                  "value": 56
+                },
+                {
+                  "color": "dark-green",
+                  "value": 140
+                },
+                {
+                  "color": "#EAB839",
+                  "value": 224
+                },
+                {
                   "color": "red",
-                  "value": 80
+                  "value": 240
                 }
               ]
             },
@@ -106,13 +196,15 @@
       ],
       "timeFrom": null,
       "timeShift": null,
-      "title": "How old are all the mice?",
+      "title": "How old is each mouse?",
       "type": "bargauge"
     }
   ],
   "schemaVersion": 22,
   "style": "dark",
-  "tags": [],
+  "tags": [
+    "maus"
+  ],
   "templating": {
     "list": [
       {
@@ -165,5 +257,5 @@
   "timezone": "",
   "title": "Mouse Ages",
   "uid": "AQi6oy0Zz",
-  "version": 10
+  "version": 14
 }
