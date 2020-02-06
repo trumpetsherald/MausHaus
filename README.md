@@ -50,9 +50,9 @@ This is going to have to be good enough. Eventually we should use git pages and 
 ## Using Maus Web (the Django web app)
 
 1. Open a brower to `http://localhost:8000/admin/maus_web/`
-![Admin Home Picture](./docs/images/Admin\ Home.png/)
+![Admin Home Picture](./docs/images/Admin%20Home.png/)
 2. Click Mice, once you create some they will be listed here.
-![Admin Mice Picture](./docs/images/Admin\ Mice.png/)
+![Admin Mice Picture](./docs/images/Admin%20Mice.png/)
 3. Click Add Mouse
 ![Admin Mouse Picture](./docs/images/Admin\ Mouse.png/)
 Some of these fields don't do anything yet, these are: Codename, Picture, and Is favorite.
