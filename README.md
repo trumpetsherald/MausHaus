@@ -19,7 +19,7 @@ You'll need the following:
 * PlantUML
 * Django
 
-I work on a Mac and am competent on *nix systems but if you need help on Windows I won't be able to offer much. I know you'll need gitbashprompt at a minimum.
+I work on a Mac and am competent on \*nix systems but if you need help on Windows I won't be able to offer much. I know you'll need gitbashprompt at a minimum.
 
 # Goals
 This is intended to help the amatuer mouse owner / breeder to manage thier pets and hopefully be more successful at breeding the traits they want.
@@ -50,17 +50,17 @@ This is going to have to be good enough. Eventually we should use git pages and 
 ## Using Maus Web (the Django web app)
 
 1. Open a brower to `http://localhost:8000/admin/maus_web/`
-![Admin Home Picture]("./docs/images/Admin Home.png/")
+![Admin Home Picture](./docs/images/Admin\ Home.png/)
 2. Click Mice, once you create some they will be listed here.
-![Admin Mice Picture]("./docs/images/Admin Mice.png/")
+![Admin Mice Picture](./docs/images/Admin\ Mice.png/)
 3. Click Add Mouse
-![Admin Mouse Picture]("./docs/images/Admin Mouse.png/")
+![Admin Mouse Picture](./docs/images/Admin\ Mouse.png/)
 Some of these fields don't do anything yet, these are: Codename, Picture, and Is favorite.
 Hopefully the rest is self explanatory.
 4. Creating associations is manual process, that is you have to create entries in a table to make them. I tried to and will continue to indicate these with friendly names like Mice in a Bin or Trait on a mouse. Navigate to the admin home and select Bins or Cages to create a bin for your mouse to live in.
-![Admin Bin Picture]("./docs/images/Admin Bin.png/")
+![Admin Bin Picture](./docs/images/Admin\ Bin.png/)
 5. Click Mouse in a Cage and you'll see letting the database know a mouse is in a bin or cage is pretty self explanatory.
-![Admin Mouse Bin Picture]("./docs/images/Admin Mouse Bin.png/")
+![Admin Mouse Bin Picture](./docs/images/Admin\ Mouse\ Bin.png/)
 6. Traits and Traits on a Mouse don't do anything yet.
 
 ## Using the Grafana Dashboards
@@ -69,10 +69,10 @@ This is where the real value is, the dashboards are what (hopefully) help you ma
 
 1. Open a brower to `http://localhost:3000/` and log in with your admin creds if prompted.
 2. Select Mouse Ages from the dropdown on the top left.
-![Mouse Ages Dashboard Picture]("./docs/images/Mouse Ages.png/")
+![Mouse Ages Dashboard Picture](./docs/images/Mouse\ Ages.png/)
 Admittedly not super useful but ymmv.
 3. Next up select Bin Maintenance. If you put mice into bins it will tell you which ones are where. If you update last_cleaned each cleaning it will track when you need to clean next. And finally if you have a complex rack setup you can use the rack, elevation, and position fields to find out where a given bin is in a rack and easily locate mice.
-![Bin Maintenance Dashboard Picture]("./docs/images/Bin Maintenance.png/")
+![Bin Maintenance Dashboard Picture](./docs/images/Bin\ Maintenance.png/)
 4. On the Breeding dashboard you see which bins have mice ready for gender ID (10-15 days after delivery date on a mating), which mice are ready to breed, and which mice are in a few significant growth stages.
 ![Breeding Dashboard Picture](./docs/images/Breeding.png/)
 5. Finally on the Mating dashboard you can see when matings occurred and what the outcomes were.
