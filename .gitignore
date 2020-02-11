@@ -107,4 +107,5 @@ venv.bak/
 **/*.idea
 **/src/maus_web/migrations/*
 **/grafana/paths_data/*
+**/grafana/paths_plugins/*
 **/postgres/pg_data/*

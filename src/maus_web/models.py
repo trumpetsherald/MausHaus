@@ -11,9 +11,11 @@ class Gender(Enum):
 class BinCage(models.Model):
     class Meta:
         verbose_name_plural = "Bins or Cages"
+        ordering = ['name']
 
     bin_id = models.AutoField(primary_key=True)
-    description = models.CharField(max_length=128, blank=True, null=True)
+    name = models.CharField(max_length=128, blank=True, null=True)
+    description = models.TextField(blank=True, null=True)
     location = models.CharField(max_length=256, blank=True, null=True)
     rack = models.TextField(blank=True, null=True)
     elevation = models.IntegerField(blank=True, null=True)
@@ -21,7 +23,18 @@ class BinCage(models.Model):
     last_cleaned = models.DateField(blank=True, null=True)
 
     def __str__(self):
-        return self.description
+        resident_list = "("
+        resident_mice = Mouse.objects.filter(bin_location=self.bin_id)
+        if len(resident_mice) > 0:
+            for i, mouse in enumerate(resident_mice):
+                resident_list += mouse.name
+                if i < len(resident_mice) - 1:
+                    resident_list += ", "
+            resident_list += ")"
+        else:
+            resident_list = "(Empty Bin)"
+
+        return "%s %s" % (self.name, resident_list)
 
 
 class Mouse(models.Model):
@@ -52,21 +65,6 @@ class Mouse(models.Model):
             return self.name + " (" + self.gender + ")"
         else:
             return self.name
-
-
-class MouseBinCage(models.Model):
-    class Meta:
-        verbose_name_plural = "Mice in a Cage"
-
-    mouse_id = models.ForeignKey(
-        Mouse, on_delete=models.CASCADE,
-    )
-    bin_id = models.ForeignKey(
-        BinCage, on_delete=models.CASCADE,
-    )
-
-    def __str__(self):
-        return self.mouse_id.name + " is in " + self.bin_id.description
 
 
 class Trait(models.Model):

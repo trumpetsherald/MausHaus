@@ -15,7 +15,7 @@
 # >&2 echo "Postgres is up - executing command"
 # exec $cmd
 
-echo "Sleeping for 10 seconds while postgres comes up"
-sleep 10
+echo "Sleeping for 20 seconds while postgres comes up"
+sleep 20
 cd /var/opt/MausHaus/src
 exec python manage.py runserver 0.0.0.0:8000
