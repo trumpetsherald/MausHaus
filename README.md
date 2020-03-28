@@ -28,15 +28,17 @@ This is really to set expectations. The target audience is not professionals alt
 
 # Running
 1. Run `docker-compose build`
-2. Run `docker-compose exec web /bin/ash`
-3. In the shell run `python manage.py createsuperuser` and follow the prompts. I highly recommend you use the same credentials as the database.
-4. At prompt run `cd src`, then `python manage.py makemigrations`
-5. Then run `python manage.py migrate`
-6. Type `exit` to exit the shell
-7. Run `docker-compose up -d`
-8. Open a brower to `localhost:8000/admin`
-9. Grafana is at localhost:3000
-10. You'll be prompted to login to Grafana, use admin admin as the password and it will prompt you to change.
+2. Run `docker-compose up -d`
+3. Run `docker-compose exec web /bin/ash`
+4. In the shell run `cd src` then `python manage.py migrate`
+5. Run `python manage.py createsuperuser` and follow the prompts. I highly recommend you use the same credentials as the database.
+6. Run `python manage.py makemigrations`
+7. Then run `python manage.py migrate`
+8. If you are running from another host edit settings.py and add your IP to allowed hosts.
+9. Type `exit` to exit the shell
+10. Open a brower to `localhost:8000/admin` or `yourip:8000/admin`
+11. Grafana is at localhost:3000
+12. You'll be prompted to login to Grafana, use admin admin as the password and it will prompt you to change.
 
 # User Guide
 This is going to have to be good enough. Eventually we should use git pages and have a proper manual.
